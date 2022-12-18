@@ -1,0 +1,118 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Bootstrap CSS Link -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
+
+		<!-- Font Awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
+		<script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+
+		<!-- the Main CSS File -->
+		<link rel="stylesheet" href="resources/css/style2.css" />
+		<!-- login CSS File -->
+		<link rel="stylesheet" href="resources/css/login.css" />
+
+
+		<!-- Title -->
+		<title>Vereflix: Inicia sesión</title>
+		<link rel="shortcut icon" href="resources/img/favicon.png" type="image/x-icon">
+
+	</head>
+	<body>
+		<div class="background-wrapper">
+			<img 
+				src="resources/img/wallpaper.png"
+			/>
+		</div>
+		<header>
+			<div class="logo">
+				<img src="resources/img/logo.png" alt="" />
+			</div>
+		</header>
+		<!-- Container for login -->
+		<main>
+			<div class="loginContainer">
+				<div class="logingContainer-main">
+					<div>
+						<h1>Iniciar sesión</h1>
+					</div>
+					<div class="registered-alert alert alert-success" role="alert">
+						Registro correcto
+					</div>
+					<!--  Bootstrap's form .. -->
+					<form action="/auth" method="post" id="loginForm">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Usuario</label>
+							<input required
+								name="username"
+								type="text"
+								class="form-control form-control-lg"
+								id="exampleInputEmail1"
+								aria-describedby="emailHelp"
+							/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Contraseña</label>
+							<input required
+								name="password"
+								type="password"
+								class="form-control form-control-lg"
+								id="exampleInputPassword1"
+							/>
+						</div>
+						<button
+							type="submit"
+							class="mt-4  btn btn-danger btn-lg btn-block"
+						>
+							Entrar
+						</button>
+						<br>
+						¿No tienes cuenta? <b><a href="register">Crea una.</a></b>
+						<!-- <b><a href="#" style="text-align: center;">Need help?</a></b> -->
+					</form>
+				</div>
+			</div>
+		</main>
+		<!-- Bootstrap JS Link -->
+		<script
+			src=" https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+			crossorigin="anonymous"
+		></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<% if(typeof alert != "undefined"){ %>
+			<script>
+				Swal.fire({
+					title:'<%= alertTitle %>',
+					text: '<%= AlertMessage %>',
+					icon:'<%= alertIcon %>',
+					showConfirmButton:'<%= showConfirmButton %>',
+					timer: '<%= timer %>'
+				}).then(()=>{
+					window.location='/<%= ruta %>'
+				})
+			</script>
+			<% } %>
+	</body>
+</html>

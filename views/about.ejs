@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vereflix : </title>
+
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/about.css">
+    <link rel="stylesheet" href="resources/css/comments.css">
+    <link rel="shortcut icon" href="resources/img/favicon.png" type="image/x-icon">
+
+</head>
+<body >
+    <!-- navbar -->
+    <nav class="navbar">
+        
+       <a href="/" class="logo"><img src="resources/img/logo.png" class="logo" alt=""></a> 
+        <div class="join-box">
+            <button  class="btn"><a style="color: white; text-decoration:none" href="login/logout">Desconectarse</a> </button>
+        </div>
+    </nav>
+
+    <!-- movie info -->
+    <div class="movie-info">
+        <div class="movie-detail">
+            <h1 name='movieName' class="movieName" ></h1>
+            <p class="genres"></p>
+            <p class="des"></p>
+            <p class="starring"><span>Reparto:</span></p>
+        </div>
+    </div>
+
+    <!-- video clips -->
+    <div class="trailer-container">
+        <h1 class="heading">Video Clip</h1>
+        <!-- <iframe src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    </div>
+
+    <!-- comments -->
+    <div class="trailer-container" id="comments">
+        <h1 class="heading">Valoracion:</h1>
+        <form action="/note" method="post" >
+            <input name="note" type="number" min="1" max="10" required>
+            <button id="buttoncomment" type="submit">Enviar valoración</button>
+        </form>
+        <br><br>
+        
+        
+        
+    </div>
+    <!-- recommendations -->
+    <div class="recommendations" onload=saveFilm();>
+        <h1 class="heading">Más como este título:</h1>
+        <div class="recommendations-container">
+            <!-- <div class="movie">
+                <img src="img/poster.jpg" alt="">
+                <p class="movie-title">movie name</p>
+            </div> -->
+        </div>
+    </div>
+
+    <script src="resources/js/api.js"></script>
+    <script src="resources/js/about.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+    <% if(typeof alert != "undefined"){ %>
+        <script>
+            Swal.fire({
+                title:'<%= alertTitle %>',
+                text: '<%= AlertMessage %>',
+                icon:'<%= alertIcon %>',
+                showConfirmButton:'<%= showConfirmButton %>',
+                timer: '<%= timer %>'
+            }).then(()=>{
+                window.location='/<%= ruta %>'
+            })
+        </script>
+        <% } %>
+    
+</body>
+</html>
